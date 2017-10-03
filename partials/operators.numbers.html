@@ -1,0 +1,33 @@
+<div class="mb1 clearfix">
+    <div class="pull-left">
+        <button ui-sref="operators.numbers.edit()" class="button active mr05" translate>ADD</button>
+        <button ui-sref="operators.numbers.edit({id: selected.id})" ng-disabled="!selected" class="button mr05" translate>EDIT</button>
+        <span style="width: 310px;" class="field-icon right">
+            <input type="text" ng-model="numbersFilter" placeholder="{{'NUMBER.ENTER_NUM_NAME' | translate}}" />
+            <i class="icon-search"></i>
+        </span>
+    </div>
+    <div class="pull-right">
+        <button ui-upload="import" ui-upload-accept="text/plain" ui-tooltip="{location: 'left'}" ui-tooltip-content="{{'NUMBER.IMPORT_DESCRIPTION' | translate}}" class="active mr05">{{'LOAD_FROM_FILE' | translate}}</span></button>
+        <button ui-confirm="{title: 'REMOVE', content: 'NUMBER.DELETE', onSuccess: delete}" ng-disabled="!selected" class="button" translate>DELETE</button>
+    </div>
+</div>
+<table class="table hover mb1">
+    <tr>
+        <th style="width: 14px;"></th>
+        <th style="min-width: 100px;" translate>NAME</th>
+        <th class="text-right" style="width: 120px;" translate>PHONE_SIPID</th>
+        <th class="text-right" style="padding-right: 25px;" translate>GROUPS</th>
+    </tr>
+    <tr ng-repeat="n in numbers | matchProp:numbersFilter:['description','number']">
+        <td><ui-checkbox value="n" ng-model="$parent.selected"></ui-checkbox></td>
+        <td>{{n.description}}</td>
+        <td>{{n.number}}</td>
+        <td class="text-right" style="padding-right: 25px;">
+            <span ng-repeat="group in n.groupsList">{{group.name}}<span ng-if="!$last">, </span></span>
+        </td>
+    </tr>
+</table>
+<div ng-if="!numbers.length" class="text-center">{{'GROUP.NUMBERS_LIST_EMPTY' | translate}}.</div>
+<div ui-view></div>
+<div ui-confirm></div>

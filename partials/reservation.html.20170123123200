@@ -1,0 +1,72 @@
+<table class="layout-table">
+    <tr>
+        <td class="pt15 pr15 pl15" ng-form="reservationForm">
+            <div class="mb2 clearfix">
+                <label class="mr1 pull-left">
+                    {{'RESERVATION.CATEGORY' | translate}}<br />
+                    <ui-combo id="categorySelector" ui-model="filter.category" class="combo-box" style="width: 170px;">
+                        <var></var>
+                        <ul style="width: 100%;">
+                            <li data-value="all">Все</li>
+                            <li ng-repeat="item in settings.numberCategories" data-value="{{item.name}}">{{item.name}}</li>
+                        </ul>
+                    </ui-combo>
+                </label>
+                <label class="mr1 pull-left">
+                    <span>{{'RESERVATION.SEARCH' | translate}}</span><br />
+                    <div>
+                        <ui-combo ui-model="filter.mode" class="combo-box" style="width: 178px;">
+                            <var></var>
+                            <ul>
+                                <li data-value="all">Любая часть номера</li>
+                                <li data-value="postfix">Хвост номера</li>
+                            </ul>
+                        </ui-combo>
+                        <div style="width: 158px;" class="field-icon right">
+                            <input type="text" placeholder="{{'RESERVATION.ENTER_SEARCH' | translate}}" ng-model="filter.number" ng-keydown="!reservationForm.$invalid && $event.which==13 && find()" ng-pattern="/^\d*$/" maxlength="4" />
+                            <i class="icon-search"></i>
+                        </div>
+                    </div>
+                </label>
+                <label class="mr1 pull-left">
+                    &nbsp;<br />
+                    <button ng-click="find();" ng-disabled="reservationForm.$invalid" class="button active" translate>RESERVATION.FIND</button>
+                </label>
+                <label class="pull-right">
+                    &nbsp;<br />
+                    <button ui-sref="reservation.reserv" class="button" translate>RESERVATION.RESERV</button>
+                </label>
+            </div>
+            <div class="mb1">
+                Стоимость подключения номеров:<br /><br />
+                Без категории – 2 500 руб. с НДС, единовременно.<br />
+                Остальные категории – по запросу
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="pr15 pl15 pb15" style="height: 100%;">
+            <table class="layout-table">
+                <tr>
+                    <td style="height: 40px; line-height: 38px; color: #9c9c9c; padding: 0 25px;">Доступные номера</td>
+                </tr>
+                <tr>
+                    <td style="height: 445px; border: 1px solid #dadada; border-top-width: 3px;">
+                        <ui-list ng-model="numbers" ng-if="numbers.length" class="reservation-list">
+                            <li class="pull-left" style="width: 50%;">
+                                <ui-checkbox ng-disabled="isCheckedNumber(node.number)" ng-model="node.$checked" ng-click="check(node);"></ui-checkbox>
+                                {{node.number | phone8800}}
+                                <small style="color: #9c9c9c; padding-left: 12px">{{node.category}}</small>
+                            </li>
+                        </ui-list>
+                        <div ng-if="!numbers.length" style="line-height: 38px;" class="text-center">{{'RESERVATION.LIST_EMPTY' | translate}}.</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pt1"><ui-paginator ui-model="numbers" ui-refresh="find"></ui-paginator></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<div ui-view></div>

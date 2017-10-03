@@ -1,0 +1,36 @@
+<div class="mb1 clearfix">
+    <div class="pull-left">
+        <button ui-sref="operators.groups.edit" class="button active mr05" translate>ADD</button>
+        <button ui-sref="operators.groups.edit({id: selected.id})" ng-disabled="!selected" class="button mr05" translate>EDIT</button>
+        <span style="width: 250px;" class="field-icon right">
+            <input type="text" placeholder="Введите название группы" ng-model="filter" />
+            <i class="icon-search"></i>
+        </span>
+    </div>
+    <div class="pull-right">
+        <button ng-click="delete()" ng-disabled="!selected" class="button" translate>DELETE</button>
+    </div>
+</div>
+<div class="operators-groups grid hover mb1">
+    <header>
+        <div class="cell cell-1">&nbsp;</div>
+        <div class="cell cell-2" translate>NAME</div>
+        <div class="cell cell-3 text-right" translate>ROUTEMODE</div>
+        <div class="cell cell-4 text-right" translate>PHONE_SIPID</div>
+    </header>
+    <section ng-repeat="group in groups | matchProp:filter:['name']" ui-row-group="group.numbers" class="opened">
+        <div class="row">
+            <div class="cell cell-1"><ui-checkbox value="group" ng-model="$parent.selected"></ui-checkbox></div>
+            <div class="cell cell-2"><div class="nowrap"><a href="#" ng-click="groupToggle($event)" class="dashed">{{group.name}}</a></div></div>
+            <div class="cell cell-3 text-right"><div class="nowrap" translate>{{'ROUTEMODE.'+group.routeMode}}</div></div>
+        </div>
+        <div ng-repeat="n in group.numbers" class="row">
+            <div class="cell cell-1">&nbsp;</div>
+            <div class="cell cell-2"><div class="nowrap">{{n.name}}</div></div>
+            <div class="cell cell-3 text-right">&nbsp;</div>
+            <div class="cell cell-4 text-right"><div class="nowrap">{{n.number}}</div></div>
+        </div>
+    </section>
+</div>
+<div ng-if="!groups.length" class="text-center">{{'GROUP.LIST_EMPTY' | translate}}.</div>
+<div ui-view></div>

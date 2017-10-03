@@ -1,0 +1,126 @@
+<div class="m15">
+    <div class="clearfix">
+        <div class="pull-left mb1" style="width: 260px;">
+            <h2 class="mb05" translate>CHANGE_PASSWORD</h2>
+            <fieldset ng-form="changePasswordForm">
+                <label class="mb2">
+                    {{'CURRENT_PASSWORD' | translate}}
+                    <input type="password" name="old" ng-model="password.old" />
+                </label>
+                <br />
+                <label class="mb1">
+                    {{'NEW_PASSWORD' | translate}}
+                    <input type="password" name="new" ng-model="password.new" ng-disabled="!password.old" ng-required="password.old" ui-form-error />
+                </label>
+                <br />
+                <label class="mb1">
+                    {{'REPEAT_PASSWORD' | translate}}
+                    <input type="password" name="confirm" ng-model="password.confirm" ng-disabled="!password.old" ui-compare-to="password.new" ui-form-error />
+                </label>
+                <br />
+                <label style="width: 100%" class="mb2">
+                    {{'STRENGTH_PASSWORD' | translate}}
+                    <div class="progress">
+                        <div class="progress-bar" ui-strength="password.stg" ui-model="password.new"></div>
+                        <sub ng-if="password.stg.state=='success'" translate>STRENGTH_PASSWORD.VERY_RELIABLE</sub>
+                        <sub ng-if="password.stg.state=='warning'" translate>STRENGTH_PASSWORD.RELIABLE</sub>
+                        <sub ng-if="password.stg.state=='danger'" translate>STRENGTH_PASSWORD.UNRELIABLE</sub>
+                    </div>
+                </label>
+                <div class="clearfix">
+                    <button ng-click="changePassword()" ng-disabled="!password.old || changePasswordForm.$invalid" class="button active pull-right" translate>SAVE</button>
+                </div>
+            </fieldset>
+        </div>
+        <div ng-form="limitsForm" class="pull-right mb1" style="width: 663px;">
+            <h2 class="mb05" translate>LIMITS</h2>
+            <fieldset>
+                <div style="margin-top: 3px;" class="clearfix mb1">
+                    <label>
+                        &nbsp;
+                        <div>
+                            <ui-switcher ng-model="_limit.capacity" class="mr1"></ui-switcher>
+                            {{'LIMITS.CAPACITY' | translate}}
+                        </div>
+                    </label>
+                    <div class="pull-right">
+                        <label>
+                            {{'TO' | translate}}
+                            <input type="number" name="capacity" min="0" ng-model="limit.capacity" ng-disabled="!_limit.capacity" ui-form-error class="sm">
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix mb1">
+                    <label>
+                        &nbsp;
+                        <div>
+                            <ui-switcher ng-model="_limit.dayLimit" class="mr1"></ui-switcher>
+                            {{'LIMITS.DAY_LIMIT' | translate}}
+                        </div>
+                    </label>
+                    <div class="pull-right">
+                        <label>
+                            {{'TO' | translate}}
+                            <input type="number" name="dayLimit" min="0" ng-model="limit.dayLimit" ng-disabled="!_limit.dayLimit" ui-form-error class="sm">
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix mb1">
+                    <label>
+                        &nbsp;
+                        <div>
+                            <ui-switcher ng-model="_limit.weekLimit" class="mr1"></ui-switcher>
+                            {{'LIMITS.WEEK_LIMIT' | translate}}
+                        </div>
+                    </label>
+                    <div class="pull-right">
+                        <label>
+                            {{'TO' | translate}}
+                            <input type="number" name="weekLimit" min="0" ng-model="limit.weekLimit" ng-disabled="!_limit.weekLimit" ui-form-error class="sm">
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix mb2">
+                    <label>
+                        &nbsp;
+                        <div>
+                            <ui-switcher ng-model="_limit.monthLimit" class="mr1"></ui-switcher>
+                            {{'LIMITS.MONTH_LIMIT' | translate}}
+                        </div>
+                    </label>
+                    <div class="pull-right">
+                        <label>
+                            {{'TO' | translate}}
+                            <input type="number" name="monthLimit" min="0" ng-model="limit.monthLimit" ng-disabled="!_limit.monthLimit" ui-form-error class="sm">
+                        </label>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <button ng-click="limitSave()" ng-disabled="limitsForm.$invalid" class="button active pull-right" translate>SAVE</button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <!--h2 class="mb05">{{'WEB_BUTTON' | translate}}</h2>
+    <fieldset>
+        <table>
+            <tr>
+                <td style="width: 240px;">
+                    <div style="background-color: #f2f2f2;" ui-html="webButtonSource" class="text-center mb1 p1">
+                        <a href="http://193.201.231.65/freephone/page.html?id={{$root.identify.number}}"><img src="https://193.201.231.65/moscow/call_btn.png"></a>
+                    </div>
+                    <label class="mb1">
+                        {{'WEB_BUTTON.HTML_CODE' | translate}}
+                        <textarea ng-model="webButtonSource" noresize readonly class="web-button-source"></textarea>
+                    </label>
+                    <div class="clearfix">
+                        <button clip-copy="webButtonSource" class="button active pull-right">{{'COPY' | translate}}</button>
+                    </div>
+                </td>
+                <td class="web-button-desc">
+                    {{'WEB_BUTTON.DESCRIPTION' | translate}}
+                </td>
+            </tr>
+        </table>
+    </fieldset-->
+</div>

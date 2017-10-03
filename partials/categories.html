@@ -1,0 +1,38 @@
+<div class="p15 clearfix">
+    <div class="mb1 clearfix">
+        <div class="pull-left">
+            <button ui-sref="categories.edit" class="button active mr05" translate>ADD</button>
+            <button ui-sref="categories.edit({id: selected.id})" ng-disabled="!selected" class="button mr05" translate>EDIT</button>
+            <span style="width: 250px;" class="field-icon right">
+                <input type="text" placeholder="{{'CATEGORY.ENTER_NAME' | translate}}" ng-model="filter" />
+                <i class="icon-search"></i>
+            </span>
+        </div>
+        <div class="pull-right">
+            <button ui-upload="import" ui-upload-accept="text/plain" ng-disabled="!selected" ui-tooltip="{location: 'left'}" ui-tooltip-content="{{'CATEGORY.IMPORT_DESCRIPTION' | translate}}" class="active mr05">{{'LOAD_FROM_FILE' | translate}}</button>
+            <button ng-click="delete()" ng-disabled="!selected" class="button" translate>DELETE</button>
+        </div>
+    </div>
+    <div>
+        <table class="table hover mb1">
+            <thead>
+                <tr>
+                    <th style="width: 14px;"></th>
+                    <th>{{'CATEGORY.LIST' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="cat in categories | filter:filter" ui-row-group="cat.numbers" class="open">
+                <tr>
+                    <td><div><ui-checkbox value="cat" ng-model="$parent.selected"></ui-checkbox></div></td>
+                    <td colspan="4"><div><a href="#" ng-click="groupToggle($event)" class="dashed">{{cat.name}}</a></div></td>
+                </tr>
+                <tr ng-repeat="number in cat.numbers">
+                    <td></td>
+                    <td>{{number}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="!categories.length" class="text-center">{{'CATEGORY.LIST_EMPTY' | translate}}.</div>
+    </div>
+</div>
+<div ui-view></div>

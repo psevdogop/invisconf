@@ -1,0 +1,32 @@
+<div class="p15 clearfix">
+    <div class="mb1 clearfix">
+        <div class="pull-left">
+            <button ui-sref="blacklist.edit" class="button active mr05" translate>ADD</button>
+            <button ui-sref="blacklist.edit({id: selected.id})" ng-disabled="!selected" class="button mr05" translate>EDIT</button>
+            <span style="width: 310px;" class="field-icon right">
+                <input type="text" placeholder="{{'NUMBER.ENTER_NUM_PART' | translate}}" ng-model="filter" />
+                <i class="icon-search"></i>
+            </span>
+        </div>
+        <div class="pull-right">
+            <button ui-upload="import" ui-upload-accept="text/plain" ui-tooltip="{location: 'left'}" ui-tooltip-content="{{'BLACK.IMPORT_DESCRIPTION' | translate}}" class="active mr05">{{'LOAD_FROM_FILE' | translate}}</button>
+            <button ng-click="delete()" ng-disabled="!selected" class="button" translate>DELETE</button>
+        </div>
+    </div>
+    <div>
+        <table class="table hover mb1">
+            <tr>
+                <th style="width: 24px;"></th>
+                <th translate>BLACK.LIST</th>
+                <th class="text-right" style="padding-right: 25px;" translate>DESCRIPTION</th>
+            </tr>
+            <tr ng-repeat="r in blacklist | filter:filter">
+                <td><ui-checkbox value="r" ng-model="$parent.selected" /></td>
+                <td>{{r.numberMask}}</td>
+                <td class="text-right" style="padding-right: 25px;" >{{r.description}}</td>
+            </tr>
+        </table>
+        <div ng-if="!blacklist.length" class="text-center">{{'BLACK.LIST_EMPTY' | translate}}.</div>
+    </div>
+</div>
+<div ui-view></div>

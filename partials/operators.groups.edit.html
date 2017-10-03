@@ -1,0 +1,85 @@
+<ui-modal ng-form="groupForm" class="operators-group-add">
+    <header>
+        <h3>{{'GROUP.ADD' | translate}}</h3>
+        <i ng-click="cancel()" class="icon-close"></i>
+    </header>
+    <section>
+        <label>
+            {{'GROUP.NAME' | translate}} *
+            <input type="text" name="name" ng-model="group.name" ui-form-error="{location: 'bottom'}" placeholder="{{'GROUP.ENTER_NAME' | translate}}" required />
+        </label>
+        <div class="mt05">
+            <div style="width: 100%;" class="field-icon right mb1">
+                <input type="text" ng-model="numbersFilter" placeholder="{{'NUMBER.ENTER_NUM_PART' | translate}}">
+                <i class="icon-search"></i>
+            </div>
+            <div class="clearfix mb1">
+                <label class="pull-left">
+                    {{'NUMBER.LIST' | translate}}
+                    <ui-list ng-model="numbers" filter="matchProp:numbersFilter:['number']" style="width: 270px; height: 190px;">
+                        <ui-checkbox ng-model="node.$checked">&nbsp; {{node.number}}</ui-checkbox>
+                    </ui-list>
+                </label>
+                <div style="width: 32px; margin: 4.9em 1em;" class="pull-left">
+                    <a href="javascript: void(0);" ng-click="addNumbers()" style="padding-left: 2px;" class="button arrow icon-angle-right mb05"></a>
+                    <a href="javascript: void(0);" ng-click="removeNumbers()" style="padding-right: 2px;" class="button arrow icon-angle-left"></a>
+                </div>
+                <label class="pull-right">
+                    {{'GROUP.NUMBERS' | translate}} *
+                    <ui-list name="numbers" ng-model="group.numbers" ui-valid="valid.groupNumbers()" ui-form-error="{location: 'top', template: '#invalidGroupNumbers'}" sv-root sv-part="group.numbers" style="width: 270px; height: 190px;">
+                        <li sv-element class="clearfix">
+                            <ui-checkbox ng-model="node.$checked">&nbsp; {{node.number}}</ui-checkbox>
+                            <i sv-handle class="icon-list pull-right"></i>
+                        </li>
+                    </ui-list>
+                    <script type="text/ng-template" id="invalidGroupNumbers">
+                        <span ng-show="group.routeMode!='PRIMARY_BACKUP'">{{'ERRORS.GROUPFORM.NUMBERS.NOT_PRIMARY_BACKUP' | translate}}</span>
+                        <span ng-show="group.routeMode=='PRIMARY_BACKUP'">
+                            {{'ERRORS.GROUPFORM.NUMBERS.PRIMARY_BACKUP' | translate}}
+                            <div ng-if="group.numbers[0]" class="mt1">
+                                <label style="width: 100%;" class="mb1">
+                                    {{'NUMBER.TIME_ACCIDENT' | translate}}
+                                    <input type="number" name="timeAccident" ng-model="group.numbers[0].timeAccident" placeholder="{{'ERRORS.NUMBER' | translate}}" min="0" required />
+                                </label>
+                                <label style="width: 100%;" class="mb1">
+                                    {{'NUMBER.CAPACITY' | translate}}
+                                    <input type="number" name="capacity" ng-model="group.numbers[0].capacity" placeholder="{{'ERRORS.NUMBER' | translate}}" min="0" required />
+                                </label>
+                            </div>
+                        </span>
+                    </script>
+                </label>
+            </div>
+            <div class="clearfix">
+                <div class="pull-right" style="width: 270px;">
+                    <div class="mb1">
+                        <ui-checkbox name="hasCongestionManagement" ng-model="group.hasCongestionManagement" ng-disabled="group.routeMode!='PRIMARY_BACKUP'" ui-required="group.routeMode=='PRIMARY_BACKUP' && !group.hasFailureManagement" ui-form-error="{location: 'left'}"></ui-checkbox>
+                        <span ng-bind-html-unsafe translate>GROUP.HASCONGESTIONMANAGEMENT</span>
+                    </div>
+                    <div class="mb1">
+                        <ui-checkbox name="hasFailureManagement" ng-model="group.hasFailureManagement" ng-disabled="group.routeMode!='PRIMARY_BACKUP'" ui-required="group.routeMode=='PRIMARY_BACKUP' && !group.hasCongestionManagement" ui-form-error="{location: 'left'}"></ui-checkbox>
+                        <span ng-bind-html-unsafe translate>GROUP.HASFAILUREMANAGEMENT</span>
+                    </div>
+                </div>
+                <label class="mb1 pull-left" style="width: 270px;">
+                    {{'ROUTEMODE' | translate}}
+                    <div ui-combo ui-model="group.routeMode" class="combo-box">
+                        <var></var>
+                        <ul>
+                            <li data-value="ROUND_ROBIN">{{'ROUTEMODE.ROUND_ROBIN' | translate}}</li>
+                            <li data-value="ORDER_BY_LIST">{{'ROUTEMODE.ORDER_BY_LIST' | translate}}</li>
+                            <li data-value="PRIMARY_BACKUP">{{'ROUTEMODE.PRIMARY_BACKUP' | translate}}</li>
+                        </ul>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </section>
+    <footer class="text-right">
+        <a href="javascript: void(0);" ng-click="cancel()" class="dashed" translate>CANCEL</a> {{'OR' | translate}}
+        <button ng-click="save()" ng-disabled="groupForm.$invalid" class="button active ml1" translate>SAVE</button>
+    </footer>
+</ui-modal>
+<style type="text/css">
+    body {overflow: hidden;}
+</style>

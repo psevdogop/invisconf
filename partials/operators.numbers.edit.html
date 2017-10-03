@@ -1,0 +1,67 @@
+<ui-modal ng-form="numberForm" class="operators-group-add operators-number-add">
+    <header>
+        <h3>{{'NUMBER.ADD' | translate}}</h3>
+        <i ng-click="cancel()" class="icon-close"></i>
+    </header>
+    <section>
+        <div style="width: 40%;" class="pull-left">
+            <label style="width: 100%;" class="mb1">
+                {{'NUMBER.TYPE' | translate}}
+                <ui-pure-combo  class="combo-box" ng-class="" style="width: 100%">
+                    <var>{{ getNumberTypeById(number.type).name | translate }}</var>
+                    <ul style="width: 100%;">
+                        <li ng-repeat="item in numberTypes" ng-click="number.type = item.id">{{item.name | translate}}</li>
+                    </ul>
+                </ui-pure-combo>
+            </label>
+            <label style="width: 100%;" class="mb1" ng-show="number.type == 'sip'">
+                {{'NUMBER.DOMAIN' | translate}}
+                <ui-pure-combo  class="combo-box" style="width: 100%" ng-class="(number.gateId == null || number.gateId.length < 1)?'ng-invalid':''">
+                    <var>{{(number.gateId | idx:'domain.id').domain}}</var>
+                    <ul style="width: 100%;">
+                        <li ng-repeat="item in domains" ng-click="number.gateId = item.id">{{item.domain}}</li>
+                    </ul>
+                </ui-pure-combo>
+                <input type="hidden" ng-model="number.gateId" ng-required="number.type == 'sip'">
+            </label>
+            <label style="width: 100%;" class="mb1">
+                {{'NUMBER' | translate}}
+                <input type="text" name="number" ng-model="number.number" ui-form-error placeholder="{{numberValidator.placeholder | translate}}" ng-pattern="numberValidator.pattern" required />
+            </label>
+            <label style="width: 100%;" class="mb1">
+                {{'NUMBER.DESCRIPTION' | translate}}
+                <input type="text" name="description" ng-model="number.description" placeholder="{{'NUMBER.ENTER_DESCRIPTION' | translate}}" />
+            </label>
+            <label style="width: 100%;" class="mb1">
+                {{'NUMBER.TIME_ACCIDENT' | translate}}
+                <input type="number" name="timeAccident" ng-model="number.timeAccident" ui-form-error placeholder="{{'ERRORS.NUMBER' | translate}}" min="0" ng-required="valid.timeAccidentRequired" />
+            </label>
+            <label style="width: 100%;" class="mb1">
+                {{'NUMBER.CAPACITY' | translate}}
+                <input type="number" name="capacity" ng-model="number.capacity" ui-form-error placeholder="{{'ERRORS.NUMBER' | translate}}" min="0" required />
+            </label>
+        </div>
+        <div style="width: 60%; padding-left: 0;" class="pull-right">
+            <label style="width: 100%;">
+                <div class="clearfix">
+                    <div class="pull-left" style="width: 240px">{{'NUMBER.GROUPS' | translate}}</div>
+                    <div class="pull-left" style="color: #9c9c9c;" translate>ROUTEMODE</div>
+                </div>
+                <ui-list name="groups" ng-model="groups" ui-valid="valid.groupNumbers()" ui-form-error="{location: 'left'}" class="groups-list mb1" style="height: 243px;">
+                    <li class="clearfix">
+                        <div class="cell-1"><ui-checkbox ng-model="node.$checked" ng-class="{'ng-invalid': node.$invalid}" ui-tooltip="{location: 'left', content: node.name}" class="nowrap"> &nbsp;{{node.name}}</ui-checkbox></div>
+                        <div class="cell-2 nowrap" translate>{{'ROUTEMODE.'+node.routeMode}}</div>
+                    </li>
+                </ui-list>
+            </label>
+            <!--a href="#" class="button mb1">Добавить группу</a-->
+        </div>
+    </section>
+    <footer class="text-right">
+        <a href="javascript: void(0);" ng-click="cancel()" class="dashed" translate>CANCEL</a> {{'OR' | translate}}
+        <button ng-click="save()" ng-disabled="numberForm.$invalid" class="button active ml1" translate>SAVE</button>
+    </footer>
+</ui-modal>
+<style type="text/css">
+body {overflow: hidden;}
+</style>

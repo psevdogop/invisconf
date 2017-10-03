@@ -1,0 +1,32 @@
+<div ui-modal ng-form="categoryEdit" class="categories-edit">
+    <header>
+        <h3>{{'CATEGORY.ADD' | translate}}</h3>
+        <i ng-click="cancel()" class="icon-close"></i>
+    </header>
+    <section>
+        <div class="m15">
+            <label style="width: 100%;" class="mb1">
+                {{'CATEGORY.NAME' | translate}} *
+                <input type="text" name="name" placeholder="{{'CATEGORY.ENTER_NAME' | translate}}" ng-model="category.name"  ui-form-error="{location: 'bottom'}" required />
+            </label>
+            <label style="width: 100%;" class="mb1">
+                {{'CATEGORY.NUMBERS' | translate}}
+                <ui-list ng-model="category.numbers" class="mb05" style="height: 174px;">
+                    <i ng-click="category.numbers.splice($index, 1)" class="icon-close mr05"></i>
+                    {{node}}
+                </ui-list>
+                <div ng-form="categoryAddNumber" isolated-form class="clearfix">
+                    <input type="text" name="number" ng-model="$parent.number" ui-validate="{mask: 'valid.numberMask($value)', dublicate: 'valid.numberDublicate($value)'}" ui-form-error="{location: 'top'}" placeholder="{{'CATEGORY.ENTER_MASK' | translate}}" style="width: 344px;" class="mr05" />
+                    <button ng-click="addNumber();" ng-disabled="categoryAddNumber.number.$invalid || !$parent.number.length" class="button pull-right" translate>ADD</button>
+                </div>
+            </label>
+        </div>
+    </section>
+    <footer class="text-right">
+        <a href="#" ng-click="cancel(); $event.preventDefault();" class="dashed" translate>CANCEL</a> {{'OR' | translate}}
+        <button ng-click="save()" ng-disabled="categoryEdit.$invalid" class="button active ml1" translate>SAVE</button>
+    </footer>
+</div>
+<style type="text/css">
+    body {overflow: hidden;}
+</style>

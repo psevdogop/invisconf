@@ -1,0 +1,154 @@
+
+    <!--<table class="body-wrapper layout-table" ng-cloak>-->
+        <!--<tr>-->
+            <!--<td class="page-header clearfix">-->
+                <!--<a href="/" class="logo pull-left" translate="LOGO"></a>-->
+                <!--<div ng-if="identify" class="box field-icon left pull-right">-->
+                    <!--<var ng-bind="identify.description || identify.number"></var>-->
+                    <!--<i class="icon-user"></i>-->
+                <!--</div>-->
+                <!--<a href="javascript: " ng-click="logout()" ng-if="identify" class="pull-right" translate="LOGOUT"></a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr ng-class="{hide: !identify || $state.includes('reservation')}">-->
+            <!--<td class="page-nav page-nav-main">-->
+                <!--<ul class="clearfix">-->
+                    <!--<li><a ui-sref="routing" ui-sref-active="active" translate="ROUTING"></a></li>-->
+                    <!--<li><a ui-sref="operators" ui-sref-active="active" translate="OPERATORS_NUMBERS"></a></li>-->
+                    <!--<li><a ui-sref="categories" ui-sref-active="active" translate="CATEGORY"></a></li>-->
+                    <!--<li><a ui-sref="blacklist" ui-sref-active="active" translate="BLACK"></a></li>-->
+                    <!--<li><a ui-sref="statistics" ui-sref-active="active" translate="STATISTICS"></a></li>-->
+                    <!--<li><a ui-sref="settings" ui-sref-active="active" translate="SETTINGS"></a></li>-->
+                <!--</ul>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr ng-class="{hide: !$state.includes('reservation')}">-->
+            <!--<td class="page-nav page-nav-main">-->
+                <!--<ul class="clearfix">-->
+                    <!--<li><a ui-sref="home" ui-sref-active="active" translate="PRIVATE_OFFICE"></a></li>-->
+                    <!--<li><a ui-sref="reservation" ui-sref-active="active" translate="RESERVATION"></a></li>-->
+                <!--</ul>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <div class="clearfix">
+                <div class="routing-root-node clearfix">
+                    <div class="pull-left mr05">
+                        <label style="width: 136px;">
+                            {{'ROUTING.INCOMING_CALLS' | translate}}
+                            <div class="box">
+                                <var>{{$root.identify.number}}</var>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="label pull-left">
+                        &nbsp;
+                        <div>
+                            <button ng-click="insert(rootRules[0])" class="button" translate="ADD_RULE"></button>
+                        </div>
+                    </div>
+                    <div class="label pull-right">
+                        &nbsp;
+                        <div>
+                            <button ng-click="save()" class="button active mr05" translate="SAVE"></button>
+                            <button ng-click="clear()" class="button" translate="DELETE_ALL"></button>
+                            <!--button ng-click="" class="button mr05">Выбрать все</button>
+                            <button ng-click="delete()" class="button">Удалить</button-->
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color: #d0d0d0;">
+                    <ul ui-tree-view="{children: 'rules'}" ui-model="rootRules[0].rules" class="inline-tree">
+                        <li ng-class="{open: node.$expand, start: depth==0 && $first, one: $parent.nodes.length==1}">
+                            <sup ng-if="depth==0 && $first" translate="ROUTING.START_TREATMENT"></sup>
+                            <section ng-if="node['@xsi.type']=='callRule'">
+                                <h3 translate="ROUTING.OPERATORS_NUMBERS"></h3>
+                                <div class="sign">=</div>
+                                <div class="content">
+                                    <button ng-click="$ps.edit(node)" ng-show="!node.destinationNumberGroupId" class="button" translate="SELECT_RULE"></button>
+                                    <span ng-click="$ps.edit(node)">
+                            {{(node.destinationNumberGroupId | idx:'operatorsGroup.id').name}}
+                        </span>
+                                </div>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='calendarRule'">
+                                <a href="javascript: " ng-click="$ps.remove(node)" class="remove icon-close" /></a>
+                                <div translate="IF"></div>
+                                <h2 translate="PERIOD"></h2>
+                                <div class="sign warning">=</div>
+                                <div ng-click="$ps.edit(node)" class="content">
+                                    <ui-weekday-interval ui-model="node.calendarInterval.weekdays"></ui-weekday-interval>
+                                    <div translate="FROM_TO" translate-values='{from: node.calendarInterval.startTime, to: node.calendarInterval.endTime}'></div>
+                                </div>
+                                <a href="javascript: void(0)" ng-click="$ps.insert(node)" class="add-rule" translate="ADD_RULE"></a>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='categoryRule'">
+                                <a href="javascript: " ng-click="$ps.remove(node)" class="remove icon-close" /></a>
+                                <div translate="IF"></div>
+                                <h2 translate="CATEGORY"></h2>
+                                <div class="sign info">=</div>
+                                <div ng-click="$ps.edit(node)" class="content">
+                                    {{(node.categoryId | idx:'categories.id').name}}
+                                </div>
+                                <a href="javascript: void(0)" ng-click="$ps.insert(node)" class="add-rule" translate="ADD_RULE"></a>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='regionRule'">
+                                <a href="javascript: " ng-click="$ps.remove(node)" class="remove icon-close"></a>
+                                <div translate="IF"></div>
+                                <h2 translate="REGION"></h2>
+                                <div class="sign success">=</div>
+                                <div ng-click="$ps.edit(node)" class="content">
+                        <span ng-repeat="r in node.regionIds | idx:'regions.id'">
+                            {{r.name}}<b ng-if="!$last">,</b><b ng-if="$last">.</b>
+                        </span>
+                                </div>
+                                <a href="javascript: void(0)" ng-click="$ps.insert(node)" class="add-rule" translate="ADD_RULE"></a>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='keyQuotaSetRule'">
+                                <a href="javascript: " ng-click="$ps.remove(node)" class="remove icon-close" /></a>
+                                <div translate="IF"></div>
+                                <h2 translate="COUNTER"></h2>
+                                <div class="sign danger">=</div>
+                                <div ng-click="$ps.edit(node)" class="content">
+                                    {{'ROUTING.WORK_FROM' | translate}}<br />{{node.startTime|date:'dd.MM.yyyy&nbsp;HH:mm'}},<br />до {{node.maxCount}} срабатываний<span ng-if="node.loopEnabled">,<br />{{'ROUTING.CYCLICAL' | translate}}</span>.
+                                </div>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='keyQuotaRule'">
+                                <a href="javascript: " ng-show="$parent.nodes.length>2" ng-click="$ps.remove(node)" class="remove icon-close" /></a>
+                                <div translate="IF"></div>
+                                <h2 ng-if="node.firstCount==node.lastCount" translate="VALUE"></h2>
+                                <h2 ng-if="node.firstCount!=node.lastCount" translate="RANGE"></h2>
+                                <div class="sign danger">=</div>
+                                <div ng-if="node.firstCount==node.lastCount" ng-click="$ps.edit(node)" class="content">
+                                    {{node.firstCount}}
+                                </div>
+                                <div ng-if="node.firstCount!=node.lastCount" ng-click="$ps.edit(node)" class="content">
+                                    <span translate="FROM_TO" translate-values='{from: node.firstCount, to: node.lastCount}'></span>
+                                </div>
+                                <a href="javascript: void(0)" ng-click="$ps.insert(node)" class="add-rule" translate="ADD_RULE"></a>
+                            </section>
+                            <section ng-if="node['@xsi.type']=='defaultRule'">
+                                <div translate="ALL"></div>
+                                <h2 translate="OTHER"></h2>
+                                <div ng-switch="node.$parent.rules[0]['@xsi.type']">
+                                    <button class="button mt1" ng-switch-when="calendarRule" ng-click="$ps.add(node.$parent)" translate="ADD_PERIOD"></button>
+                                    <button class="button mt1" ng-switch-when="categoryRule" ng-click="$ps.add(node.$parent)" translate="ADD_CATEGORY"></button>
+                                    <button class="button mt1" ng-switch-when="regionRule" ng-click="$ps.add(node.$parent)" translate="ADD_REGION"></button>
+                                    <button class="button mt1" ng-switch-when="keyQuotaRule" ng-click="$ps.add(node.$parent)" translate="ADD_RANGE"></button>
+                                    <div class="button mt1" ng-switch-when="keyQuotaSetRule" translate="ROUTING.KEY_QUOTA_SET_RULE"></div>
+                                </div>
+                                <a href="javascript: void(0)" ng-click="$ps.insert(node)" class="add-rule" translate="ADD_RULE"></a>
+                            </section>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div ui-view></div>
+
+
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td class="page-footer">© <span ng-bind="timestamp | date:'yyyy'"></span> <span translate="COPYRIGHT"></span></td>-->
+        <!--</tr>-->
+    <!--</table>-->

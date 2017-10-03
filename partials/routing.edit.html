@@ -1,0 +1,140 @@
+<div ui-modal ng-class="{edit: mode=='edit'}" class="routing-editor">
+    <header ng-switch="$parent.mode">
+        <h3 ng-switch-when="insert">{{ 'SELECTION_RULE' | translate}}</h3>
+        <h3 ng-switch-when="add">{{ 'ROUTING.ADD.' + $parent.type | translate}}</h3>
+        <h3 ng-switch-when="edit">{{ 'ROUTING.EDIT.' + $parent.type | translate}}</h3>
+        <i ng-click="cancel()" class="icon-close"></i>
+    </header>
+    <section>
+        <div class="subtitle">
+            <div ng-show="$parent.mode=='insert'" class="mb05" translate="ROUTING.SUBTITLE"></div>
+            <b ng-show="$parent.mode!='edit'||($parent.type=='calendarRule'||$parent.type=='keyQuotaSetRule')" translate="DATE_FROM_MOSCOW"></b>
+        </div>
+        <nav class="tabs clearfix">
+            <ul ng-show="$parent.mode=='insert'&&$parent.type!='keyQuotaRule'" class="clearfix">
+                <li class="m115"><a href="javascript: void(0);" ng-click="$parent.type='regionRule'" ng-class="{active: $parent.type=='regionRule'}">{{'ROUTING.BY_REGION' | translate}}</a></li>
+                <li><a href="javascript: void(0);" ng-click="$parent.type='calendarRule'" ng-class="{active: $parent.type=='calendarRule'}">{{'ROUTING.BY_PERIOD' | translate}}</a></li>
+                <li><a href="javascript: void(0);" ng-click="$parent.type='categoryRule'" ng-class="{active: $parent.type=='categoryRule'}">{{'ROUTING.BY_CATEGORY' | translate}}</a></li>
+                <li><a href="javascript: void(0);" ng-click="$parent.type='keyQuotaSetRule'" ng-class="{active: $parent.type=='keyQuotaSetRule'}">{{'ROUTING.BY_COUNTER' | translate}}</a></li>
+            </ul>
+            <section ng-class="{active: $parent.type=='regionRule'}">
+                <ul ui-tree-view="{onChange: $parent.changeRegion}" ui-model="$parent.regions" class="tree">
+                    <li ng-class="{open: node.$expand, leaf: !node.children.length}">
+                        <i class="icon-minus" ng-click="toggleNode(node)" ng-show="node.$expand && node.children.length"></i>
+                        <i class="icon-plus" ng-click="toggleNode(node)" ng-show="!node.$expand && node.children.length"></i>
+                        <ui-checkbox ui-marked="node.$marked" ng-model="node.$checked" ng-click="markParents(node);"></ui-checkbox>
+                        <span>&nbsp; {{ node.name }}</span>
+                    </li>
+                </ul>
+            </section>
+            <section ng-class="{active: $parent.type=='calendarRule'}">
+                <fieldset class="mt1">
+                    <legend translate="HOURS"></legend>
+                    {{'FROM' | translate}} <input type="text" pattern="\d{2}:\d{2}" placeholder="00:00" required ng-model="$parent.calendarRule.calendarInterval.startTime" class="sm" />
+                    {{'ON' | translate}} <input type="text" pattern="\d{2}:\d{2}" placeholder="00:00" required ng-model="$parent.calendarRule.calendarInterval.endTime"  class="sm" />
+                </fieldset>
+                <fieldset class="mt2">
+                    <legend translate="DAYS_OF_WEEK"></legend>
+                    <div ui-week-day ui-model="$parent.calendarRule.calendarInterval.weekdays"></div>
+                </fieldset>
+                <fieldset class="mt2">
+                    <legend translate="ADDITIONAL_DAYS"></legend>
+                    <div class="mb1" translate="ROUTING.ADDITIONAL_DAYS_DESC"></div>
+                    <div ui-datepicker="{empty: true, isoDate: true}" ui-model="$parent.calendarRule.calendarInterval.customDates" style="width: 100%;"></div>
+                </fieldset>
+            </section>
+            <section ng-class="{active: $parent.type=='categoryRule'}">
+                <table class="table hover mb1">
+                    <thead>
+                        <tr>
+                            <th style="width: 14px;"></th>
+                            <th translate="CATEGORY.LIST"></th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="cat in categories" ui-row-group class="group open">
+                        <tr>
+                            <td><div><ui-checkbox value="cat.id" ng-model="$parent.categoryRule.categoryId"></ui-checkbox></div></td>
+                            <td><div><a href="#" ng-click="groupToggle($event)" class="dashed">{{cat.name}}</a></div></td>
+                        </tr>
+                        <tr ng-repeat="number in cat.numbers">
+                            <td></td>
+                            <td>{{number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div ng-if="!categories.length" class="text-center mb1" translate="CATEGORY.LIST_EMPTY"></div>
+            </section>
+            <section ng-class="{active: $parent.type=='keyQuotaSetRule'}">
+                <fieldset class="mt1 clearfix">
+                    <legend translate="DATE_START"></legend>
+                    <div class="pull-left">
+                        <ui-datepicker ui-model="$parent.keyQuotaSetRule.startTime" style="width: 112px;"></ui-datepicker>
+                        <ui-time ng-model="$parent.keyQuotaSetRule.startTime"  style="width: 60px;"></ui-time>
+                    </div>
+                    <div style="width: 290px;" class="pull-right">
+                        <p translate="ROUTING.DATE_START_DESC"></p>
+                    </div>
+                </fieldset>
+                <fieldset class="mt2 clearfix">
+                    <legend translate="SETTINGS"></legend>
+                    <div class="mb1 clearfix">
+                        <div class="pull-left">
+                            <input type="number" min="0" ng-model="$parent.keyQuotaSetRule.maxCount" placeholder="0" style="width: 100px;" />
+                        </div>
+                        <div style="width: 290px;" class="pull-right">
+                            <p translate="ROUTING.COUNTER_MAX_VAL"></p>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="pull-left">
+                            <ui-checkbox ng-model="$parent.keyQuotaSetRule.loopEnabled" />&nbsp; {{'ROUTING.CYCLICAL' | translate}}</ui-checkbox>
+                        </div>
+                        <div style="width: 290px;" class="pull-right">
+                            <p translate="ROUTING.CYCLICAL_DESC"></p>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+            <section ng-class="{active: $parent.type=='keyQuotaRule'}">
+                <fieldset class="mt1 clearfix">
+                    <legend>{{'RANGE_VALUES' | translate}}</legend>
+                    <div class="pull-left">
+                        {{'FROM' | translate}} <input type="text" ng-model="$parent.keyQuotaRule.firstCount" placeholder="1" style="width: 80px;" />
+                        {{'TO' | translate}} <input type="text" ng-model="$parent.keyQuotaRule.lastCount" placeholder="8" style="width: 80px;" />
+                    </div>
+                    <div style="width: 290px;" class="pull-right" translate="ROUTING.RANGE_VALUES_DESC"></div>
+                </fieldset>
+            </section>
+            <section ng-class="{active: $parent.type=='callRule'}" class="call-rule">
+                <div class="grid hover mb1">
+                    <header>
+                        <div class="cell cell-1">&nbsp;</div>
+                        <div class="cell cell-2">{{'NAME' | translate}}</div>
+                        <div class="cell cell-3 text-right">{{'ROUTEMODE' | translate}}</div>
+                        <div class="cell cell-4 text-right">{{'PHONE_SIPID' | translate}}</div>
+                    </header>
+                    <section ng-repeat="group in $root.operatorsGroup" ui-row-group class="opened">
+                        <div class="row">
+                            <div class="cell cell-1"><ui-checkbox value="group.id" ng-model="$parent.callRule.destinationNumberGroupId"></ui-checkbox></div>
+                            <div class="cell cell-2"><div class="nowrap"><a href="#" ng-click="groupToggle($event)" class="dashed">{{group.name}}</a></div></div>
+                            <div class="cell cell-3 text-right"><div class="nowrap" translate>{{'ROUTEMODE.'+group.routeMode}}</div></div>
+                        </div>
+                        <div ng-repeat="n in group.numbers" class="row">
+                            <div class="cell cell-1">&nbsp;</div>
+                            <div class="cell cell-2"><div class="nowrap">{{n.name}}</div></div>
+                            <div class="cell cell-3 text-right">&nbsp;</div>
+                            <div class="cell cell-4 text-right"><div class="nowrap">{{n.number}}</div></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </nav>
+    </section>
+    <footer class="text-right">
+        <a href="javascript: void(0);" ng-click="cancel()" class="dashed" translate>CANCEL</a> {{'OR' | translate}}
+        <button ng-click="accept()" class="button active ml1" translate>SAVE</button>
+    </footer>
+</div>
+<style type="text/css">
+    body {overflow: hidden;}
+</style>

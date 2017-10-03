@@ -1,0 +1,69 @@
+<sup ng-if="$i==1 && $first">НАЧАЛО ОБРАБОТКИ</sup>
+<section ng-init="$i=$i+1;" ng-switch="data.type">
+    <input type="checkbox" />
+    <div ng-switch-when="callRule">
+        <h3>Операторы и<br />номера</h3>
+        <div class="sign">=</div>
+        <div class="content">
+            <button class="button">Выбрать оператора</button>
+        </div>
+    </div>
+    <div ng-switch-when="calendarRule">
+        <div>Если</div>
+        <h2>Период</h2>
+        <div class="sign warning">=</div>
+        <div class="content">
+            {{data.calendarInterval.weekdays | weekdays}}
+        </div>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+    <div ng-switch-when="categoryRule">
+        <div>Если</div>
+        <h2>Категория</h2>
+        <div class="sign info">=</div>
+        <div class="content">
+            Пн.-Пт. 9:00-18:00
+        </div>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+    <div ng-switch-when="regionRule">
+        <div>Если</div>
+        <h2>Регион</h2>
+        <div class="sign success">=</div>
+        <div class="content">
+            Пн.-Пт. 9:00-18:00
+        </div>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+    <div ng-switch-when="keyQuotaSetRule">
+        <div>Если</div>
+        <h2>Счетчик</h2>
+        <div class="sign danger">=</div>
+        <div class="content">
+            Работает с {{data.startTime|date:'dd.MM.yyyy&nbsp;HH:mm'}},<br />до {{data.maxCount}} срабатываний<span ng-if="data.loopEnabled">,<br />цикичный</span>.
+        </div>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+    <div ng-switch-when="keyQuotaRule">
+        <div>Если</div>
+        <h2 ng-if="data.firstCount==data.lastCount">Значение</h2>
+        <h2 ng-if="data.firstCount!=data.lastCount">Диапазон</h2>
+        <div class="sign danger">=</div>
+        <div ng-if="data.firstCount==data.lastCount" class="content">
+            {{data.firstCount}}
+        </div>
+        <div ng-if="data.firstCount!=data.lastCount" class="content">
+            от {{data.firstCount}} до {{data.lastCount}}
+        </div>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+    <div ng-switch-default>
+        <div>Все</div>
+        <h2>Остальные</h2>
+        <button class="button mt1" ng-click="$log.log()">Добавить период</button>
+        <a href="javascript: void(0)" ng-click="edit(data)" class="add-rule">Добавить правило</a>
+    </div>
+</section>
+<ul>
+    <li ng-class="{one: (this | parent:2).data.rules.length==1}" ng-repeat="data in data.rules" ng-include="'partials/routing.item.html'"></li>
+</ul>
