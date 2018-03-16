@@ -1,0 +1,458 @@
+body {
+    font-weight: 300 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+   /* letter-spacing: 1px !important;*/
+    font-family: "proxima-nova",sans-serif !important;
+   
+
+}
+
+
+.op_10: hover {
+    opacity: .5 !important;
+}
+
+
+h5.b-unit__header_size_small.b-registration__header.schk__widget-header, h5.b-unit__header_size_small.b-registration__header.b-indentable {
+   
+    color: #e5d284;
+    font-family: "proxima-nova",sans-serif !important;
+    font-weight: 100;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: none !important;
+    font-size: 18px;
+    padding-top: 25px;
+}
+
+a.ep3-like-btn.ep3-like-btn_static.js-schk-wrap__cover-btn: after { content: "Выбрать" !important;  }
+
+
+.schk-wrap__cover .schk-wrap_preview {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000 !important;
+    opacity: .5;
+}
+
+.schk-wrap__cover .schk-wrap__cover-btn-wrap .schk-wrap__cover-btn-bg {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5)!important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    padding-top: 20px;
+}
+
+a.ep3-like-btn.ep3-like-btn_static.js-schk-wrap__cover-btn {display: none;}
+
+.schk-wrap__cover-btn-bg:after {color:#fff; font-weight:100; letter-spacing:1px; font-size: 18px; content: "Выбрать место";
+border: 2px solid #1DBA7B;
+    color: #fff;
+    background-color: #1DBA7B;
+    display: inline-block;
+    margin: auto;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* дефолтные стили */
+
+
+
+form#eventreg_form {
+    background-color: #000 !important;
+}
+
+.i-page {
+    background-color: #000 !important;
+}
+
+.b-pro-wiget__pay-button,.b-pro-wiget__reg-button,.b-printable-ticket__button {
+   font-weight: 300 !important;
+    color: #202633 !important;
+    text-shadow: none !important;
+    text-decoration: none!important;
+    letter-spacing: 2px;
+    text-transform: uppercase !important;
+    background-color: rgb(253, 223, 119) !important;
+    text-shadow: none!important;
+    border: none!important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+      -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 40px !important;
+    margin-bottom: 40px !important;
+    line-height: 1;
+    font-family: "proxima-nova",sans-serif;
+    font-size: 16px;
+    margin-top: 15px;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+
+@media (max-width:520px) {
+    .b-pro-wiget__pay-button, .b-pro-wiget__reg-button {
+        width: initial !important; 
+        display: block;
+        padding: 16px 20px
+    }
+}
+
+
+.b-registration__acquirings.b-acquirings.js-acquirings {
+    display: none  !important;
+}
+
+.b-pro-wiget__pay-button:focus,.b-pro-wiget__pay-button:hover,.b-pro-wiget__reg-button:focus,.b-pro-wiget__reg-button:hover {
+    background-color: rgba(253, 223, 119, 0.9) !important;
+}
+
+input.span12.b-input {
+    border-radius: 40px !important;
+}
+
+button.b-input-block__promo-btn {
+    border-radius: 40px !important;
+    border: none !important;
+     background-color: rgb(253, 223, 119) !important;
+    color: #202633 !important;
+}
+
+button.b-input-block__promo-btn, .b-printable-ticket__button: hover {
+    background-color: rgba(253, 223, 119, 0.9) !important;
+}
+
+.b-printable-ticket__button:focus,.b-printable-ticket__button:hover {
+    background-color: rgba(253, 223, 119, 0.9) !important;
+}
+
+label.b-unit__text.b-registration__question {
+    text-align: center !important;
+    
+    font-weight: 100 !important;
+    color: #999;
+    line-height: 1.3;
+    display: block;
+    letter-spacing: 2px !important;
+
+}
+
+.b-indentable, .b-registration__section_indent {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+input.span12.b-input {
+    background: none !important;
+    border: none !important;
+    background-color: rgb(38, 38, 38) !important;
+    border-radius: 48px !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 16px !important;
+}
+
+
+.b-reg-row {
+    margin-bottom: 20px!important;
+}
+
+
+.b-reg-table__text {
+    font-size: 14px !important;
+  
+   color: #f0f0f0 !important;
+    font-weight: 100 !important;
+    line-height: 18px;
+    letter-spacing: 1px !important;
+}
+
+.b-reg-table__text_extra {
+    font-weight: 300 !important;
+    font-size: 14px;
+         color: #999 !important;
+    letter-spacing: 1px !important;
+}
+
+label.b-reg-table__text {
+    color: #e5d284 !important;
+}
+
+span.b-reg-table__text.b-not-bold {
+    color: #999 !important;
+}
+
+h3.b-reg-table__header.b-reg-table__text {
+    font-size: 12px !important;
+}
+
+@media (max-width: 520px), (max-device-width: 640px) and (orientation: landscape){
+.b-reg-table .b-reg-table__price-mobile {
+    display: block;
+    margin-top: 8px;
+    color: #999 !important;
+    letter-spacing: 1px !important;
+    }}
+
+/*.b-input-block__promo-btn-text {
+    color: #202633;} */
+
+.twf2-branding {
+    display: none !important;
+}
+
+.b-attendee.b-attendee-0.b-attendee-main {
+    padding-top: 25px !important;
+}
+
+label.b-registration__accept {
+    display: none !important;
+}
+
+
+.b-reg-table {
+    border-bottom: none !important;
+
+}
+
+
+.b-reg-table__plusminus .b-reg-table__plusminus_btn {
+background-color: #222 !important;
+    color: #666;
+    border: none;
+    border-radius: 48px !important;
+
+}
+
+.b-reg-table__plusminus .b-reg-table__plusminus_btn.not-touch:hover {
+       background-color: rgb(253, 223, 119) !important;
+    border-color: transperent !important;
+    color: #000 !important;
+}
+
+
+.svg-twf2-plusminus-minus, .svg-twf2-plusminus-plus {
+    width: 13px;
+    height: 13px;
+    fill: #777 !important;
+    vertical-align: middle;
+}
+
+.b-reg-table__plusminus .b-reg-table__plusminus_btn.not-touch:hover svg {
+
+    fill: #000!important
+}
+
+.b-reg-table__plusminus input {
+    font-size: 18px!important;
+   
+ 
+    color: #e5d284 !important;
+    font-weight: 300 !important;
+    border: none !important;
+
+    background: none !important;
+}
+
+.b-reg-table__row:nth-of-type(2n) {
+    background-color: transperent !important;
+     background: none !important;
+}
+
+.b-reg-table__row {
+     background-color: none !important;
+     background: none !important;
+     border-top: 1px solid rgba(137,137,137,.2) !important;
+}
+
+.b-reg-table__row.b-reg-table__row_header {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.b-input-block.i-question-control {
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+.selectedTicketsInfo.b-reg-table__text {
+    padding-top: 15px;
+    font-weight: 100 !important;
+    letter-spacing: 1px !important;
+    text-transform: none !important;
+    font-size: 16px !important;
+    color: #f5f5f5 !important;
+}
+
+.help-block.b-reg-table__category-description {
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+    color: rgb(29, 186, 123) !important;
+}
+
+.b-reg-table__category-description {
+    margin-top: 3px !important;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999 !important;
+    text-shadow: none !important;
+    opacity: .5 !important;
+    
+}
+
+.close:hover,.close:focus {
+    color: #999 !important;
+
+}
+
+
+
+
+.b-unit__header_size_mid {
+    margin-bottom: 19px;
+    margin-top: -6px;
+    /* font-size: 24px; */
+    line-height: 30px;
+    /* font-weight: 400; */
+    /* font-family: HelveticaNeue,HelveticaNeue,Arial,sans-serif; */
+    /* color: #1a1a1a; */
+    color: #e5d284 !important;
+    font-family: "proxima-nova",sans-serif !important;
+    font-weight: 100 !important;
+    font-style: normal !important;
+    letter-spacing: 2px !important;
+    text-transform: none !important;
+    font-size: 18px !important;
+    padding-top: 25px !important;
+}
+
+.span2 {
+    text-align: left !important;
+}
+
+.b-event__info {
+    margin-top: 15px;
+    margin-bottom: 25px !important;
+}
+
+
+
+/* okno oplaty */
+a.b-payment__method.redirect {
+    background-color: #f5f5f5 !important;
+}
+
+h5.b-unit__header_size_small.b-registration__header {
+    display: none !important;
+}
+
+.b-event__info {
+    display: none !important;
+}
+
+.span7.b-reg-table__cell > span {
+    color: #e5d284 !important;
+}
+
+.span3.b-reg-table__cell > span {
+    color: #999 !important;
+}
+
+.span10.b-reg-table__cell > span {
+        padding-top: 15px;
+    font-weight: 100 !important;
+    letter-spacing: 1px !important;
+    text-transform: none !important;
+    font-size: 16px !important;
+    color: #f5f5f5 !important;
+}
+
+.b-event__support-info {
+    display: none !important;
+}
+
+
+.b-registration__section.b-registration__section_indent > p {
+    margin-bottom: 19px;
+    margin-top: -6px;
+    /* font-size: 24px; */
+    line-height: 30px;
+    /* font-weight: 400; */
+    /* font-family: HelveticaNeue,HelveticaNeue,Arial,sans-serif; */
+    /* color: #1a1a1a; */
+    color: #e5d284 !important;
+    font-family: "proxima-nova",sans-serif !important;
+    font-weight: 100 !important;
+    font-style: normal !important;
+    letter-spacing: 2px !important;
+    text-transform: none !important;
+    font-size: 18px !important;
+    padding-top: 25px !important
+}
+
+#widget_faq > li > a { color: #999 !important; text-transform: none !important; font-size: 15px !important;}
+
+
+
+/* uspeshnaya oplata */
+
+
+.b-registration__section > h2.b-unit__header.b-unit__header_size_large {
+    color: #fff !important;
+    font-size: 150% !important;
+    margin-top: 50px !important;
+    font-weight: 100 !important;
+}
+
+.b-registration__section_indent > p > a {
+    color: #e5d284 !important; 
+    text-decoration:underline !important;
+}
+
+
+.b-registration__section > p {text-transform: none !important;}

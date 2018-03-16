@@ -1,0 +1,71 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
+        <style>
+             body {
+  overflow: hidden;
+}
+
+
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  
+  z-index: 999999999999;
+ 
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+
+  top: 50%;
+
+                background-image: url(/img/status.gif);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+
+}  
+</style>
+
+<!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="/img/favicon.png" />
+
+<!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet" media="all">
+        
+        <!-- Custom CSS -->
+        <!--link rel="stylesheet" href="/css/animsition.min.css"-->
+
+
+<link href="/css/ekko-lightbox.css" rel="stylesheet">
+<link href="/css/dark.css" rel="stylesheet">
+        
+        <link href="/css/da.min.css" rel="stylesheet">
+        
+        <!-- Custom Fonts -->
+        
+        <script src="https://use.typekit.net/hqr6kui.js"></script>
+        <script>
+            try {
+                Typekit.load({
+                    async: true
+                });
+            } catch (e) {}
+        </script>

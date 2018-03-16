@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Маркетинговые решения для построения долгосрочных отношений с пациентами">
+        <meta name="author" content="">
+        <meta name="mailru-verification" content="3577edeb909c9f41" />
+        
+        <title>Удержание пациентов</title>
+        
+        
+        {module_contentholder,name="HeadScripts"}
+        
+        <link rel="stylesheet" href="/css/linea_basic.css">
+        <link rel="stylesheet" href="/css/animate.css">
+        
+        <style>
+            
+             
+             .intro {
+                text-align: left !important;
+                color: #000 !important;
+                background: url(/img/da_sol_back_retention.jpg) no-repeat bottom center scroll !important;
+                -webkit-background-size: cover !important;
+                -moz-background-size: cover !important;
+                background-size: cover !important;
+                -o-background-size: cover !important;
+            }
+            
+            
+            .white-back {background: none !important;}
+            #marketing-carousel {
+                padding: 0 10px 30px 10px;
+                margin-top: 30px;
+                /* Control buttons  */
+                /* Previous button  */
+                /* Next button  */
+                /* Changes the position of the indicators */
+                /* Changes the color of the indicators */
+            }
+            #marketing-carousel .carousel-control {
+                background: none;
+                color: #CACACA;
+                font-size: 2.3em;
+                text-shadow: none;
+                margin-top: 220px;
+            }
+            #marketing-carousel .carousel-control.left {
+                left: 0 !important;
+            }
+            #marketing-carousel .carousel-control.right {
+                right: 0 !important;
+            }
+            #marketing-carousel .carousel-indicators {
+                right: 50%;
+                top: 0px;
+                bottom: auto;
+                margin-right: -19px;
+                position: relative;
+                min-height: 50px;
+                width: 100%;
+                margin-left: -50%;
+            }
+            #marketing-carousel .carousel-indicators li {
+                text-indent: 0;
+                /* width: 100px; */
+                
+                text-align: center;
+                height: 45px;
+                padding-top: 10px;
+                background-color: transparent;
+                transition: all 0.4s;
+                margin: 0px;
+                border: 0px;
+                border-radius: 0px;
+                font-weight: 700;
+                font-family: "proxima-nova", sans-serif;
+                font-size: 21px;
+                color: #000;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            #marketing-carousel .carousel-indicators li:hover,
+            #marketing-carousel .carousel-indicators li:focus {
+                color: #DB3747;
+            }
+            #marketing-carousel .carousel-indicators .active {
+                color: #DB3747;
+            }
+            #marketing-carousel .carousel-indicators li span {
+                padding-bottom: 4px;
+                border-bottom: 4px solid #fff;
+                border-radius: 0px;
+            }
+            #marketing-carousel .carousel-indicators li.active span {
+                border-bottom: 4px solid #DB3747;
+                border-radius: 0px;
+                color: #DB3747;
+            }
+            .carousel-inner {
+                position: relative;
+                margin-top: 30px;
+                width: 100%;
+                overflow: inherit;
+                min-height: 160px !important;
+            }
+            /*  .carousel-fade .carousel-inner .item {
+            opacity: 0;
+            -webkit-transition-property: opacity;
+            -moz-transition-property: opacity;
+            -o-transition-property: opacity;
+            transition-property: opacity;
+            transition-duration: 1s;
+        }
+            .carousel-fade .carousel-inner .active {
+            opacity: 1;
+        }
+            .carousel-fade .carousel-inner .active.left,
+            .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+            .carousel-fade .carousel-inner .next.left,
+            .carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+            .carousel-fade .carousel-control {
+            z-index: 2;
+        } */
+            
+            .item blockquote {
+                border-left: none;
+                margin: 0;
+            }
+            .infogr-krug {
+                background-color: #DB3747;
+                width: 300px !important;
+                height: 300px !important;
+                border-radius: 300px;
+                padding-top: 50px;
+            }
+            .infogr-text {
+                padding-top: 60px;
+                /*padding-left: 0px;
+                padding-right: 0px;*/
+            }
+            @media(max-width: 768px) {
+                .infogr-text {
+                    padding-top: 0px;
+                    text-align: center;
+                }
+                .infogr-krug {
+                    display: none;
+                }
+                #marketing-carousel .carousel-control {
+                    margin-top: 100px;
+                }
+            }
+                cursor: pointer;
+            }
+            
+            .spec-block h1:hover {
+                opacity: 0.75;
+            }
+            .spec-krug {
+                background-color: #fff;
+                width: 100px;
+                height: 100px;
+                border-radius: 144px !important;
+                padding: 0px !important;
+                margin: 0px;
+                padding-top: 30px !important;
+                text-align: center !important;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 30px;
+                margin-bottom: 15px !important;
+                font-weight: 700 !important;
+                color: #34495E !important;
+                border: none !important;
+                font-size: 30px !important;
+                line-height: 0.9 !important;
+                 -moz-transition:0.3s;
+    -webkit-transition:0.3s;
+    transition:0.3s;
+            }
+            .spec-krug:hover {
+                padding: 0px;
+                margin: 0px;
+                padding-top: 55px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 30px;
+               
+                font-weight: 700;
+                border: none;
+                font-size: 30px;
+                line-height: 0.9;
+                background-color: #ffdd00 !important;
+            }
+            
+            
+            .icon {
+                color: #34495E;
+                font-size: 66px;
+                margin-bottom: 25px;
+            }
+        </style>
+        
+        
+        
+        
+        </head>
+    
+    
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        
+                <!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+        
+        <!-- Start navigation -->
+       
+        {module_contentholder,name="da_navbar_new"}
+        
+        <!-- End navigation -->
+        
+        <!--header class="intro hidden-xs">
+            <div class="intro-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-offset-1">
+                            <h1 style="font-size: 48px;">Удержание пациентов</h1>
+                            <p>Как удержать пациентов и сделать так, чтобы они вас рекомендовали?</p>
+                            <a href="#description" class="page-scroll btn btn-md da-red-btn" >
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header-->
+       
+        
+        <section id="description" class="text-center" style="padding-bottom:35px; text-center;">
+            <div class="container">
+                <img alt="" class="img-responsive" src="/img/da_retention.png" style="max-width: 150px; margin-left: auto; margin-right: auto; margin-bottom: 25px;">
+                <h1 style="font-size: 48px;">Удержание пациентов</h1>
+                 <div class="col-md-8 col-md-offset-2">
+                        
+                        <p class="text-left"  style="color: #000">Бывает, что при продвижении возникает проблема, когда приходят только новые пациенты. Это хорошо, но есть и другая сторона - если бы пациенты приходили снова, объём выручки мог бы вырасти в несколько раз.
+Это вовсе не означает, что вы не удовлетворили их потребности как специалист, ваши компетенции тут не при чём.<br><br>
+
+Первое, что необходимо сделать – наладить коммуникацию. Периодически привлекать пациентов выгодными спецпредложениями, давать скидки на посещения. Но мало просто написать им на email или в SMS - “Приходите ещё, сделаем скидку”. Нужно проработать коммуникации, чтобы людям было это интересно, выстроить систему персонализированного подхода к пациенту.
+
+В этом случае CRM-система окажется эффективным решением в связке сайтом, email-рассылками и активностями в социальных сетях.</p>
+                    </div>
+                
+                
+            </div>
+            
+            
+        </section>
+       
+
+        
+        
+<section id="config" class="text-center" style="text-center; background-color:#f1f1f1">
+            <div class="container">
+                <h1>Как построить долгосрочные отношения:</h1>
+                
+                
+                
+                
+                <div class="row">
+                    
+                    
+                    
+                    
+                    <div class="col-md-4 text-center spec-block">
+                        <a href="/services/crm">
+                        <div class="spec-krug">
+                            <div class="icon icon-basic-calendar" style="color:#000;  font-size: 45px;"></div>
+                        </div>
+                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Учет <br>пациентов</h1>
+                        
+                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                            Удобная система учёта пациентов сэкономит драгоценное время и обеспечит комфортный документооборот.
+                        </p>
+                       
+                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                                </a>
+                        
+                    </div>
+                    <div class="col-md-4 text-center spec-block">
+                         <a href="/services/email">
+                        <div class="spec-krug">
+                            <div class="icon icon-basic-mail-multiple" style="color:#000;  font-size: 45px;"></div>
+                        </div>
+                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">E-mail и SMS <br>рассылки</h1>
+                        
+                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                            Качественные E-mail и SMS рассылки - самый быстрый способ коммуникаций с вашими пациентами.
+                        </p>
+                       
+                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                                </a>
+                        
+                    </div>
+                     <div class="col-md-4 text-center spec-block">
+                        <a href="/services/auto">
+                        <div class="spec-krug">
+                            <div class="icon icon-basic-clockwise" style="color:#000;  font-size: 45px;"></div>
+                        </div>
+                        <h1 style="margin-bottom: 15px; color:#000; font-size: 28px;">Автоматизация <br>маркетинга</h1>
+                        
+                        <p class="text-center" style="margin-bottom: 20px; color: #333;">
+                            Современные веб инструменты выполняют за вас всю рутинную работу и повышают эффективность коммуникаций.
+                        </p>
+                        
+                    <h1 style="font-weight: 700; font-size: 18px;"> Подробнее →</h1>
+                                </a>
+                        
+                    </div>
+                    
+                </div>
+                
+             
+            </div>
+            
+            
+        </section>      
+        
+       
+        
+       
+        <section id="config" class="text-center" style="padding-bottom:15px; text-center; background-color:#ffdd00;">
+            <div class="container">
+                
+                
+                
+                <div class="row">
+                    
+                    
+                    <div class="col-md-8 col-md-offset-2 text-center" style="margin-bottom: 40px; color:#333;">
+                        
+                        <h1>Постройте долгосрочные отношения с&nbsp;пациентами от&nbsp;6&nbsp;000&nbsp;руб/мес</h1>
+                 
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a data-toggle="modal" data-target="#modalcontact" href="#modalcontact" class="btn btn-lg da-red-btn" style="margin-left: 10px !important; margin-right: 10px !important; margin-bottom: 0px; font-weight: 700; font-size: 16px;">
+                            Начать сейчас
+                                </a>
+
+                        <br><br><h4>* С рассрочкой на 12 месяцев</h4>
+                    </div>
+                    
+                    
+                </div>
+                
+                
+                
+                
+            </div>
+            
+            
+        </section>
+        
+
+        
+        <section id="other" class="text-center" style="padding-bottom:35px; text-center; background-color:#f1f1f1">
+            <div class="container">
+                
+                
+                
+                
+                
+               
+                
+                <a href="/#solutions">
+                    <h1 style="font-weight: 700; font-size: 18px;"> ← Другие решения</h1>
+                                </a>
+                
+                
+            </div>
+            
+            
+        </section>  
+        
+        
+         {module_contentholder,name="Modalcontact"}
+        
+        
+            
+        
+        
+        <!-- Footer -->
+        
+        {module_contentholder,name="Footer"}
+        
+        <!-- Footer Scripts -->
+        
+        
+        {module_contentholder,name="FooterScripts"}
+        
+        
+        
+        
+        <script>
+            //jQuery to collapse the navbar on scroll
+            $(window).scroll(function() {
+                if ($(".navbar").offset().top > 50) {
+                    $(".navbar-custom").addClass("top-nav-collapse");
+                } else {
+                    $(".navbar-custom").removeClass("top-nav-collapse");
+                }
+            });
+        </script>
+        
+        
+       
+        
+        
+        
+    </body>
+    
+</html>

@@ -1,0 +1,162 @@
+[
+	{
+		"title": "Шаблоны",
+		"items": [
+			{
+				"name": "style",
+				"title": "Стили текста"
+			}, {
+				"name": "grid",
+				"title": "Сетка"
+			}
+		]
+	},{
+		"title": "Страницы",
+		"items": [
+			{
+				"name": "error",
+				"title": "Ошибка",
+				"tabs": [
+					{
+						"name": "404",
+						"title": "Ошибка 404"
+					}, {
+						"name": "500",
+						"title": "Ошибка 500"
+					}, {
+						"name": "502",
+						"title": "Ошибка 502"
+					}, {
+						"name": "502-vertical",
+						"title": "Ошибка 502 (вертикальная)"
+					}
+				]
+			}
+		]
+	}, {
+		"title": "Блоки",
+		"items": [
+			{
+				"name": "buttons",
+				"title": "Кнопки"
+			}, {
+				"name": "topbar",
+				"title": "Topbar"
+			}, {
+				"name": "header",
+				"title": "Header",
+				"tabs": [
+					{
+						"name": "header-full",
+						"title": "Полный"
+					}, {
+						"name": "header-medium",
+						"title": "Средний"
+					}, {
+						"name": "header-mini",
+						"title": "Минимальный"
+					}
+				]
+			}, {
+				"name": "header-showcase/header-full",
+				"title": "Header-megafon"
+			},{
+				"name": "header-logic/header-full",
+				"title": "Header-logic"
+			},{
+				"name": "footer",
+				"title": "Футер",
+				"tabs": [
+					{
+						"name": "footer-full",
+						"title": "Полный"
+					}, {
+						"name": "footer-question",
+						"title": "Блок вопросов"
+					}, {
+						"name": "footer-info",
+						"title": "Блок информации"
+					}, {
+						"name": "footer-min",
+						"title": "Только подвал"
+					}
+				]
+			}, {
+				"name": "cover",
+				"title": "Обложка",
+				"tabs": [
+					{
+						"name": "full",
+						"title": "Обложка(полный)"
+					}, {
+						"name": "default",
+						"title": "Обложка"
+					}
+				]
+			}, {
+				"name": "todo",
+				"title": "Как это работает"
+			},  {
+				"name": "ability-mod/color",
+				"title": "Возможности"
+			},{
+				"name": "examples",
+				"title": "Примеры применения"
+			},{
+				"name": "tariff-table",
+				"title": "Таблица тарифов"
+			},{
+				"name": "tariff-table-new",
+				"title": "Таблица тарифов(альт)"
+			}, {
+				"name": "documents-8800",
+				"title": "Документы"
+			},{
+				"name": "special-rates-8800",
+				"title": "Специальные тарифы"
+			}, {
+				"name": "faq",
+				"title": "Вопрос-ответ"
+			},{
+				"name": "faq-8800",
+				"title": "Вопрос-ответ(простой)"
+			},{
+				"name": "call-to-action",
+				"title": "Call to action",
+				"tabs": [
+					{
+						"name": "ver1",
+						"title": "Обложка с заголовком, подзаголовком и одной кнопкой"
+					}, {
+						"name": "ver2",
+						"title": "Обложка с заголовком и двумя кнопками"
+					}
+				]
+			}, {
+				"name": "footer-sticky",
+				"title": "Стэк"
+			}, {
+				"name": "auth",
+				"title": "Страница авторизации",
+				"tabs": [
+					{
+						"name": "ver1",
+						"title": "Страница авторизации (ver. 1)"
+					}, {
+						"name": "ver2",
+						"title": "Страница авторизации (ver. 2)"
+					}
+				]
+			}, {
+				"name": "guide",
+				"title": "Способы подключения",
+				"tabs": [
+					{
+						"name": "ver1",
+						"title": "С аккордионом"
+					}
+				]
+			}
+		]
+	}
+]

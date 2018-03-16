@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <title>Dental Agency</title>
+        
+        {module_contentholder,name="HeadScripts"}
+        
+        <style>
+            body {
+                padding-top: 0px !important;
+            }
+            section {
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
+            @media(max-width:768px) {
+                section {
+                    padding-top: 50px;
+                    padding-bottom: 50px;
+                }
+            }
+            @media(max-width:320px) {
+                section {
+                    padding-top: 35px;
+                    padding-bottom: 35px;
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+                blockquote {
+                    font-size: 15px !important;
+                    line-height: 1.5 !important;
+                }
+                h1.bigdate {
+                    font-size: 36px;
+                }
+            }
+            section#event {
+                background-color: #DB3747;
+                background-size: cover !important;
+                background: url(/img/st1_cover_g.jpg) no-repeat center center scroll;
+                color: #fff;
+            }
+            section#place {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+            section#quote {
+                padding-top: 55px;
+                padding-bottom: 25px;
+            }
+            section#promo {
+                background-color: #DB3747;
+                background-size: cover !important;
+                background: url(/img/promo_online.jpg) no-repeat center center scroll;
+                color: #fff;
+            }
+            div#getting-started span {
+                font-weight: 100;
+                font-family: "proxima-nova", sans-serif;
+                font-size: 16px;
+            }
+            div#getting-started span.h1 {
+                font-size: 44px;
+                font-weight: 800;
+                font-family: "proxima-nova", sans-serif;
+            }
+            figure {
+                display: inline-block !important;
+                padding-left: 10px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #CACACA;
+            }
+            div.shedule {
+                border-bottom: none;
+                display: block;
+                /*padding-bottom: 10px;
+                padding-top: 10px; */
+            }
+            .form-control {
+                background-color: #f5f5f5;
+            }
+            .bigdate {
+                font-size: 75px;
+            }
+            @media(max-width:768px) {
+                .bigdate {
+                    font-size: 40px;
+                }
+            }
+            h1.intro-text {
+                font-size: 54px;
+            }
+            @media(max-width:768px) {
+                a.navbar-brand.page-scroll {
+                    margin-right: 0px;
+                }
+                h1.intro-text {
+                    font-size: 36px;
+                }
+                .navbar-fixed-top {
+                    position: relative;
+                }
+            }
+            .btn.btn-success.pull-right {
+                display: none !important;
+            }
+            #marketing-carousel {
+                padding: 0 10px 30px 10px;
+                margin-top: 30px;
+                /* Control buttons  */
+                /* Previous button  */
+                /* Next button  */
+                /* Changes the position of the indicators */
+                /* Changes the color of the indicators */
+            }
+            #marketing-carousel .carousel-control {
+                background: none;
+                color: #CACACA;
+                font-size: 2.3em;
+                text-shadow: none;
+                margin-top: 220px;
+            }
+            #marketing-carousel .carousel-control.left {
+                left: 0 !important;
+            }
+            #marketing-carousel .carousel-control.right {
+                right: 0 !important;
+            }
+            #marketing-carousel .carousel-indicators {
+                right: 50%;
+                top: 0px;
+                bottom: auto;
+                margin-right: -19px;
+                position: relative;
+                min-height: 50px;
+                width: 100%;
+                margin-left: -50%;
+            }
+            #marketing-carousel .carousel-indicators li {
+                text-indent: 0;
+                /* width: 100px; */
+                
+                text-align: center;
+                height: 45px;
+                padding-top: 10px;
+                background-color: transparent;
+                transition: all 0.4s;
+                margin: 0px;
+                border: 0px;
+                border-radius: 0px;
+                font-weight: 700;
+                font-family: "proxima-nova", sans-serif;
+                font-size: 21px;
+                color: #000;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            #marketing-carousel .carousel-indicators li:hover,
+            #marketing-carousel .carousel-indicators li:focus {
+                color: #DB3747;
+            }
+            #marketing-carousel .carousel-indicators .active {
+                color: #DB3747;
+            }
+            #marketing-carousel .carousel-indicators li span {
+                padding-bottom: 4px;
+                border-bottom: 4px solid #fff;
+                border-radius: 0px;
+            }
+            #marketing-carousel .carousel-indicators li.active span {
+                border-bottom: 4px solid #DB3747;
+                border-radius: 0px;
+                color: #DB3747;
+            }
+            .carousel-inner {
+                position: relative;
+                margin-top: 30px;
+                width: 100%;
+                overflow: inherit;
+                min-height: 160px;
+            }
+            .carousel-fade .carousel-inner .item {
+                opacity: 0;
+                -webkit-transition-property: opacity;
+                -moz-transition-property: opacity;
+                -o-transition-property: opacity;
+                transition-property: opacity;
+                transition-duration: 1s;
+            }
+            .carousel-fade .carousel-inner .active {
+                opacity: 1;
+            }
+            .carousel-fade .carousel-inner .active.left,
+            .carousel-fade .carousel-inner .active.right {
+                left: 0;
+                opacity: 0;
+                z-index: 1;
+            }
+            .carousel-fade .carousel-inner .next.left,
+            .carousel-fade .carousel-inner .prev.right {
+                opacity: 1;
+            }
+            .carousel-fade .carousel-control {
+                z-index: 2;
+            }
+            .item blockquote {
+                border-left: none;
+                margin: 0;
+            }
+            .infogr-krug {
+                background-color: #DB3747;
+                width: 300px;
+                height: 300px;
+                border-radius: 300px;
+                padding-top: 50px;
+            }
+            .infogr-text {
+                padding-top: 60px;
+                /*padding-left: 0px;
+                padding-right: 0px;*/
+            }
+            @media(max-width: 768px) {
+                .infogr-text {
+                    padding-top: 0px;
+                    text-align: center;
+                }
+                .infogr-krug {
+                    display: none;
+                }
+                #marketing-carousel .carousel-control {
+                    margin-top: 100px;
+                }
+            }
+            .spec-block {
+                margin-bottom: 40px;
+            }
+            .spec-krug {
+                background-color: #ffdd00;
+                width: 144px;
+                height: 144px;
+                border-radius: 144px;
+                padding: 0px;
+                margin: 0px;
+                padding-top: 55px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 30px;
+                margin-bottom: 30px !important;
+                font-weight: 700;
+                color: #34495E;
+                border: none;
+                font-size: 30px;
+                line-height: 0.9;
+            }
+            .spec-krug:hover {
+                padding: 0px;
+                margin: 0px;
+                padding-top: 55px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 30px;
+                margin-bottom: 30px !important;
+                font-weight: 700;
+                border: none;
+                font-size: 30px;
+                line-height: 0.9;
+            }
+            /*  .spec-krug h2 {
+            font-weight: 700;
+            margin-bottom: 0px;
+            color: #34495E;
+            
+        } */
+            
+            section#content {
+                background-color: #DB3747;
+                background-size: cover !important;
+                background: url(/img/promo_online.jpg) no-repeat center center scroll;
+                color: #fff;
+            }
+            .buttonBar,
+            .player {
+                display: none;
+            }
+            p.feedback:before {
+                content: "\f10d";
+                font-family: 'Fontawesome';
+                float: left;
+                font-size: 24px;
+                color: #CACACA;
+                margin-right: 10px;
+            }
+            @media(max-width:768px) {
+                .embed-container {
+                    position: relative;
+                    padding-bottom: 100%;
+                    height: 0;
+                    overflow: hidden;
+                    max-width: 100%;
+                    min-height: 350px;
+                }
+            }
+            @media(width: 768px) {
+                .navbar-brand-1 {
+                    display: none !important;
+                }
+            }
+        </style>
+        
+        
+        
+        
+        <meta name="robots" content="noindex" />
+    </head>
+    
+    
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+        
+        
+        
+        <!-- Start navigation -->
+        
+        
+        {module_contentholder,name="da_navbar_new"}
+        <!-- End navigation -->
+        
+        
+ 
+        <!-- Contact Section -->
+        <section id="submit" class="text-center" style="padding-top:175px;padding-bottom:75px; min-height: 400px; background-color: #f5f5f5">
+            <div class="container">
+            
+                <div class="col-md-8 col-md-offset-2">
+                    
+                    <h1>{module_url,title}</h1>
+                    <p class="text-left">{module_url,message}</p>
+                        
+                    
+                    <a href="/" class="btn btn-lg btn-default page-scroll">
+                            Перейти на главную страницу
+                        </a>
+                </div>
+               </div>
+           
+        </section>
+
+        
+          <div class="modal text-center fade" tabindex="-1" role="dialog" aria-labelledby="modalcontact" aria-hidden="true" id="modalcontact" style="background-color: #fff;">
+            <div class="col-md-6 col-md-offset-3">
+                <br>
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">×</button>
+                    <h2><b>Обратная связь</b></h2>
+                </div>
+                <div class="modal-body">
+                    
+                    
+                    <br>
+                    <br>
+                    <p>Свяжитесь с нами по телефону <b>+7 (495) 133-94-20</b> или через форму связи, чтобы уточнить информацию или решить любой возникший
+                        вопрос.
+                    </p>
+                    
+                    
+                    
+                    <!-- BEGIN Podio web form -->
+                    <script src="https://podio.com/webforms/14142468/949179.js"></script>
+                    <script type="text/javascript">
+                        _podioWebForm.render("949179")
+                    </script>
+                    <noscript>
+                        <a href="https://podio.com/webforms/14142468/949179" target="_blank">Пожалуйста, заполните форму</a>
+                    </noscript>
+                    
+                    <!-- END Podio web form -->
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <div class="modal-footer">
+                    <a class="btn close" data-dismiss="modal">Закрыть</a>
+                    
+                </div>
+            </div>
+        </div>
+        
+<!-- Footer -->
+        
+        {module_contentholder,name="Footer"}
+        
+        <!-- Footer Scripts -->
+        
+        {module_contentholder,name="FooterScripts"}
+        
+       
+    </body>
+    
+</html>

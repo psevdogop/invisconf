@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@media (max-width: 768px){
+button.navbar-toggle {
+    color: #8b5a8f !important;
+    }}
+         
+    .intro {
+    background: url(/customer_files/yavorovskaya/back.jpg) no-repeat top center scroll !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    background-size: cover !important;
+    -o-background-size: cover !important;
+}       
+            
+            h1{
+    margin:0 0 35px;
+    font-weight:900;
+    letter-spacing:1px;
+    
+}
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin:0 0 35px;
+    font-weight:400;
+    letter-spacing:1px;
+                
+    
+}
+   
+a{
+    color:#8b5a8f;
+}
+a:hover{
+    color:#995f9e;
+}
+
+.navbar-custom .nav li a:hover{
+    color:#8b5a8f !important;
+}
+.navbar-custom .nav li.active a{
+    color:#8b5a8f !important;
+}
+
+.da-main-btn{
+
+    background-color:#8b5a8f !important;
+    color:#fff !important;
+}
+.da-main-btn:hover{
+    background-color:#995f9e !important;
+}
+.btn-default{
+    border:1px solid #8b5a8f!important;
+    color:#8b5a8f !important;
+
+}
+.btn-default:hover,
+.btn-default:focus{
+    border:1px solid #8b5a8f !important;
+    background-color:#8b5a8f !important;
+}
+
+.carousel-control:hover{
+    color:#8b5a8f !important;
+}
+
+div.bhoechie-tab-menu div.list-group>a{
+
+    color:#8b5a8f;
+}
+div.bhoechie-tab-menu div.list-group>a:hover{
+    border:1px solid #8b5a8f !important;
+}
+div.bhoechie-tab-menu div.list-group>a .glyphicon,
+div.bhoechie-tab-menu div.list-group>a .fa{
+    color:#8b5a8f !important;
+}
+div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+    background-color:#8b5a8f !important;
+}
+
+.table-hover>tbody>tr:hover{
+    color:#8b5a8f !important;
+    border-top:1px solid #8b5a8f !important;
+    border-bottom:1px solid #8b5a8f !important;
+}
+
+.numbers-krug{
+    border:7px solid #8b5a8f;
+
+}
+@media (max-width:991px){
+    .numbers-krug{
+        border:5px solid #8b5a8f;
+    }
+   
+}
+@media (max-width:767px){
+    .numbers-krug{
+        border:3px solid #8b5a8f;
+
+    }
+   
+}
+.btn-outline{
+    border:solid 2px #8b5a8f;
+    color:#8b5a8f!important;
+}
+.btn-social{
+
+    border:2px solid #8b5a8f;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active{
+    border:solid 2px #8b5a8f;
+    background:#8b5a8f !important}
+
+.proxima-light{
+    color:#A9BAC5;
+                font-family:"myriad-pro-semiextended",sans-serif;
+}
+            .navbar-custom {
+   
+    font-family:"myriad-pro-semiextended"!important;
+    
+}
+
+
+.btn,.btn-primary,button,h1,h2,h3,h4{font-family:"myriad-pro-semiextended",sans-serif;}
+body,p{font-family:"myriad-pro-semiextended",sans-serif;}   
+            
+h1,h2,h3,h4{font-weight:100;}
+
+            .navbar-custom a {
+    
+    font-weight:500;
+}
+            
+.proxima{
+    font-family:"myriad-pro-semiextended",sans-serif;
+}
+            
+.icon-arrows-circle-right,.icon-arrows-circle-left{
+    font-size:48px;
+}
+.grayback{
+    background-color:#f5f5f5}
+.blackback{
+    background-color:#111331 !important;
+    background: url(/customer_files/yavorovskaya/5090db7d.png) repeat top center scroll !important;
+    color:#fff;
+}
+.blackback h1,
+.blackback h2,
+.blackback p,
+.blackback span{
+    color:#fff;
+}
+
+
+#feedback {
+    min-height: 425px;
+}
+
+.table-hover>tbody>tr>td {
+    min-width: 120px;
+
+}
