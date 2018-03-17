@@ -4,6 +4,3 @@ descr: 'Прозрачная ортодонтия состоит из двух �
 markdown: redcarpet
 email: 'hello@dentalagency.ru'
 phone: '+7 (985 600 49 49)'
-regbutton: '<a id="reg" href="#register" onclick="yaCounter33465513.reachGoal('clickRegister'); return true;" class="btn btn-md da-yellow-btn page-scroll" style="margin-bottom: 0px; padding-top: 12px; padding-bottom: 12px;">
-<span class="intro-text" style="font-size: 21px; line-height: 0.8; font-weight:300; color: #202633;"><b>Стать участником</b><br><small style="font-size: 14px; line-height: 0.8;">&nbsp;17-18 ноября | 2 семинара</small></span>
-</a>'
