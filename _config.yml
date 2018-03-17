@@ -1,0 +1,4 @@
+name: '{{ mustache }}'
+markdown: redcarpet
+email: 'hello@dentalagency.ru'
+kusok: '<p>Trodjik-less <span style="color: #000">temp</span>lates.</p>'
