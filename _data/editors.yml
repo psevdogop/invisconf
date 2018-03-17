@@ -1,0 +1,9 @@
+---
+# Please add new editors to the end!
+
+- name: TextMate
+  url:  https://gist.github.com/323624
+- name: Vim
+  url:  https://github.com/mustache/vim-mustache-handlebars
+- name: Emacs
+  url:  http://web-mode.org

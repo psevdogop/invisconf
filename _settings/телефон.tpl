@@ -1,1 +1,0 @@
-<span style="color: #009FE3;">{tag_телефон}</span>

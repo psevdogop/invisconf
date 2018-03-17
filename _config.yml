@@ -1,4 +1,5 @@
-name: '{{ mustache }}'
+name: 'Прозрачная ортодонтия 3.0'
+descr: 'Прозрачная ортодонтия состоит из двух семинаров, которые пройдут 17 - 18 ноября 2017.'
 markdown: redcarpet
 email: 'hello@dentalagency.ru'
 kusok: '<p>Trodjik-less <span style="color: #000">temp</span>lates.</p>'

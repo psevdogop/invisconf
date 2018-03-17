@@ -1,0 +1,17 @@
+---
+# Please add new languages to the end!
+
+- name: Ruby
+  url:  https://github.com/mustache/mustache
+- name: JavaScript
+  url:  https://github.com/janl/mustache.js
+- name: Python
+  url:  https://github.com/defunkt/pystache
+- name: Erlang
+  url:  https://github.com/mojombo/mustache.erl
+- name: Elixir
+  url: https://github.com/schultyy/Mustache.ex
+
+# TODO: include handlebars implementations?
+# - name: Java
+#   url:  https://github.com/jknack/handlebars.java
