@@ -1190,7 +1190,16 @@ src="https://www.facebook.com/tr?id=494349244059224&ev=PageView&noscript=1"
               });
           });
       </script>
-
+<script>
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    xhr.open('POST', 'https://api-8baf372c163fcfa1c2d335b76a80b49d.ml.sandcats.io/t', true);
+    xhr.setRequestHeader('Authorization',
+                         'Bearer -tq1u9pufY2Ud1rxUUiidaZF_AuleEX1li_STAIKELi');
+    xhr.setRequestHeader('X-Sandstorm-Passthrough', 'address');
+    xhr.send(null);
+  }
+</script>
 
   </body>
 </html>
